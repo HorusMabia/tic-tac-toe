@@ -3,12 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+
   render() {
     return (
       <button
         className="square"
         onClick={() => {
-          console.log("click");
+          console.log("click!! ");
         }}
       >
         {this.props.value}
@@ -24,7 +31,6 @@ class Board extends React.Component {
 
   render() {
     const status = "Next player: X";
-
     return (
       <div>
         <div className="status">{status}</div>
