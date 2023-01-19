@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square" onClick={() => this.props.onClick()}>
-        {this.props.value}
-      </button>
-    );
-  }
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
 class Board extends React.Component {
@@ -21,6 +19,7 @@ class Board extends React.Component {
   }
 
   handleClick(i) {
+    //this.squares[i]=""; <-- immutibility is better ... why exactly ? is it always the case ??
     const squares = this.state.squares.slice();
     squares[i] = "O";
     this.setState({ squares: squares });
