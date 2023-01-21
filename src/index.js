@@ -21,7 +21,7 @@ class Board extends React.Component {
   handleClick(i) {
     //this.squares[i]=""; <-- immutibility is better ... why exactly ? is it always the case ??
     const squares = this.state.squares.slice();
-    squares[i] = "O";
+    squares[i] = "X";
     this.setState({ squares: squares });
   }
   renderSquare(i) {
