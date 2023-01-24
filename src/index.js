@@ -15,15 +15,23 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      xIsNext: true,
     };
   }
 
   handleClick(i) {
     //this.squares[i]=""; <-- immutibility is better ... why exactly ? is it always the case ??
     const squares = this.state.squares.slice();
-    squares[i] = "X";
+    if (this.state.xIsNext === true) {
+      squares[i] = "X";
+      this.state.xIsNext = false;
+    } else {
+      squares[i] = "O";
+      this.state.xIsNext = true;
+    }
     this.setState({ squares: squares });
   }
+
   renderSquare(i) {
     return (
       <Square
